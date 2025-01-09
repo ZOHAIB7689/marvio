@@ -41,7 +41,7 @@ export const product = defineType({
       type: "slug",
       validation: (Rule) => Rule.required(),
       options: {
-        source: "name"
+        source: "description"
       }
     }),
     defineField({
