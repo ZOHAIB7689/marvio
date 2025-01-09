@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
-import { fonts } from "../lib/chakra/font";
-import { ChakraProvider } from "@/lib/chakra/ChakraProvider";
 import "./globals.css";
-
-
+import { Provider } from "@/components/ui/provider";
+import {Lato} from "next/font/google"
 export const metadata: Metadata = {
   title: "Marvio",
   description: "A Digital webstore",
 };
 
+const lato = Lato({
+  subsets:["latin"],
+  weight:["400" , "700"]
+})
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className={lato.className}suppressHydrationWarning lang="en">
       <body>
-        <ChakraProvider>{children}</ChakraProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
